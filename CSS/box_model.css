@@ -1,0 +1,22 @@
+div#third-div {
+    min-width: 250px;
+    min-height: 250px;
+}
+
+.imagine-1-container {
+    width: 200px;
+    height: 600px;
+    background-color: dodgerblue;
+}
+
+.imagine-1-container img {
+    width: 100%;
+}
+
+.imagine-2-container {
+    min-width: 200px;
+    height: 600px;
+    background-color: dodgerblue;
+}
+
+.imagine-2-container {}
