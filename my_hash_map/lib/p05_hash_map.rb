@@ -13,29 +13,29 @@ class HashMap
 
   def include?(key)
     bucket = bucket(key)
-    @store[bucket].include?(key)
+    bucket.include?(key)
   end
 
   def set(key, val)
     resize! if count == num_buckets
 
     bucket = bucket(key)
-    if @store[bucket].include?(key)
-      @store[bucket].update(key, val)
+    if bucket.include?(key)
+      bucket.update(key, val)
     else
       @count += 1
-      @store[bucket].append(key, val)
+      bucket.append(key, val)
     end
   end
 
   def get(key)
     bucket = bucket(key)
-    @store[bucket].get(key)
+    bucket.get(key)
   end
 
   def delete(key)
     bucket = bucket(key)
-    @count -= 1 if @store[bucket].remove(key)
+    @count -= 1 if bucket.remove(key)
   end
 
   def each(&prc)
@@ -73,6 +73,6 @@ class HashMap
 
   def bucket(key)
     # optional but useful; return the bucket corresponding to `key`
-    key.hash % num_buckets
+    @store[key.hash % num_buckets]
   end
 end
